@@ -1,6 +1,7 @@
 class PicsController < ApplicationController
   def index
-    @pics = Pic.page(params[:page]).per(10)
+    @q = Pic.ransack(params[:q])
+    @pics = @q.result(:distinct => true).includes(:review).page(params[:page]).per(10)
 
     render("pics/index.html.erb")
   end
