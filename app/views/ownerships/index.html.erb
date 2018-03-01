@@ -16,8 +16,20 @@
 
       <% @ownerships.each do |ownership| %>
       <tr>
-        <td><%= ownership.user.email %></td>
-        <td><%= ownership.restaurant.name %></td>
+        <td>
+          <% if ownership.user.present? %>
+            <a href="/users/<%= ownership.user.id %>">
+              <%= ownership.user.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if ownership.restaurant.present? %>
+            <a href="/restaurants/<%= ownership.restaurant.id %>">
+              <%= ownership.restaurant.name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/ownerships/<%= ownership.id %>" class="btn btn-primary">Show</a>
           <a href="/ownerships/<%= ownership.id %>/edit" class="btn btn-warning">Edit</a>
