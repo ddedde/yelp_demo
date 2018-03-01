@@ -54,6 +54,38 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_response" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for review_id -->
+      <div class="form-group">
+        <label for="review_id" class="control-label">
+          Review
+        </label>
+
+        <%= select_tag(:review_id, options_from_collection_for_select(Review.all, :id, :user_id), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for ownership_id -->
+      <input type="hidden" name="ownership_id" value="<%= @ownership.id %>">
+
+      <!-- Label and input for content -->
+      <div class="form-group">
+        <label for="content" class="control-label">
+          Content
+        </label>
+
+        <textarea id="content" name="content" placeholder="Content" class="form-control" rows="3"></textarea>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Response
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

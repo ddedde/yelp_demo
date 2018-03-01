@@ -75,6 +75,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_ownership" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :email), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for restaurant_id -->
+      <input type="hidden" name="restaurant_id" value="<%= @restaurant.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Ownership
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -106,6 +129,41 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_review" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for restaurant_id -->
+      <input type="hidden" name="restaurant_id" value="<%= @restaurant.id %>">
+
+      <!-- Label and input for content -->
+      <div class="form-group">
+        <label for="content" class="control-label">
+          Content
+        </label>
+
+        <textarea id="content" name="content" placeholder="Content" class="form-control" rows="3"></textarea>
+      </div>
+
+      <!-- Label and input for num_stars -->
+      <div class="form-group">
+        <label for="num_stars" class="control-label">
+          Num stars
+        </label>
+
+        <input type="text" id="num_stars" name="num_stars" placeholder="Num stars" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Review
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -137,6 +195,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_tagging" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for restaurant_id -->
+      <input type="hidden" name="restaurant_id" value="<%= @restaurant.id %>">
+
+      <!-- Label and input for tag_id -->
+      <div class="form-group">
+        <label for="tag_id" class="control-label">
+          Tag
+        </label>
+
+        <%= select_tag(:tag_id, options_from_collection_for_select(Tag.all, :id, :name), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Tagging
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

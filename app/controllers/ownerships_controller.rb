@@ -6,6 +6,7 @@ class OwnershipsController < ApplicationController
   end
 
   def show
+    @response = Response.new
     @ownership = Ownership.find(params[:id])
 
     render("ownerships/show.html.erb")
