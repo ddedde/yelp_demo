@@ -1,6 +1,6 @@
 class ResponsesController < ApplicationController
   def index
-    @responses = Response.all
+    @responses = Response.page(params[:page]).per(10)
 
     render("responses/index.html.erb")
   end
