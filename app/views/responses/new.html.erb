@@ -33,7 +33,7 @@
           Ownership
         </label>
 
-        <input type="text" id="ownership_id" name="ownership_id" placeholder="Ownership" class="form-control" value="<%= @response.ownership_id %>">
+        <%= select_tag(:ownership_id, options_from_collection_for_select(Ownership.all, :id, :user_id, @response.ownership_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for content -->
