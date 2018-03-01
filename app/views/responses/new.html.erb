@@ -24,7 +24,7 @@
           Review
         </label>
 
-        <input type="text" id="review_id" name="review_id" placeholder="Review" class="form-control" value="<%= @response.review_id %>">
+        <%= select_tag(:review_id, options_from_collection_for_select(Review.all, :id, :user_id, @response.review_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for ownership_id -->
