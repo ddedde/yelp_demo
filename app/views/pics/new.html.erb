@@ -24,7 +24,7 @@
           Review
         </label>
 
-        <input type="text" id="review_id" name="review_id" placeholder="Review" class="form-control" value="<%= @pic.review_id %>">
+        <%= select_tag(:review_id, options_from_collection_for_select(Review.all, :id, :user_id, @pic.review_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for image_url -->
