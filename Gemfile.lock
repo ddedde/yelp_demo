@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/firstdraft/web_git.git
-  revision: 9ef7a0a888858f45d0bcb49fb990d96d00642884
+  revision: 82f5920f10db3ba74047a08c6211dbb69ee716b0
   specs:
     web_git (0.0.1)
       git_clone_url

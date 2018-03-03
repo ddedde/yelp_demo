@@ -26,4 +26,8 @@ class Restaurant < ApplicationRecord
 
   # Validations
 
+  validates :number_of_reviews, :presence => true
+
+  validates :number_of_reviews, :numericality => { :greater_than_or_equal_to => 0 }
+
 end
